@@ -1,0 +1,62 @@
+{
+    "name": "x6-vue3-components",
+    "version": "1.0.0",
+    "description": "X6 Components for Vue3.",
+    "keywords": [
+        "antvx6",
+        "components",
+        "vue"
+    ],
+    "files": [
+        "src",
+        "dist"
+    ],
+    "homepage": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xiaodai123/x6-vue3-components"
+    },
+    "bugs": {
+        "url": "https://github.com/xiaodai123/x6-vue3-components/issues"
+    },
+    "main": "./dist/x6-vue3-components.js",
+    "module": "./dist/x6-vue3-components.esm.js",
+    "author": "daizhi",
+    "license": "MIT",
+    "devDependencies": {
+        "add-dom-event-listener": "^1.1.0",
+        "chalk": "^2.4.2",
+        "clamp": "^1.0.1",
+        "gulp": "^4.0.2",
+        "hotkeys-js": "^3.8.7",
+        "overlayscrollbars": "^1.13.1",
+        "rollup": "^1.32.1",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-vue": "^6.0.0-beta.10",
+        "shelljs": "^0.7.7",
+        "tippy.js": "^6.3.7",
+        "tippy.vue": "^3.1.2",
+        "vue": "^3.2.29"
+    },
+    "peerDependencies": {
+        "add-dom-event-listener": "^1.1.0",
+        "clamp": "^1.0.1",
+        "hotkeys-js": "^3.8.7",
+        "overlayscrollbars": "^1.13.1",
+        "tippy.js": "^6.3.7",
+        "tippy.vue": "^3.1.2",
+        "vue": "^3.2.29"
+    },
+    "scripts": {
+        "setup": "npm i && cd example && npm i && cd ..",
+        "build": "node build.js",
+        "example": "cd example && npm run serve",
+        "build-example": "cd example && npm run build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@vue/babel-plugin-jsx": "^1.1.1",
+        "@vue/compiler-sfc": "^3.2.31"
+    }
+}

@@ -1,0 +1,227 @@
+@import '../style/theme/variables.scss';
+$toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
+.#{$toolbar-prefix-cls} {
+    $self: &;
+    display: flex;
+    flex-direction: row;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    padding-left: 4px;
+    overflow: hidden;
+
+    &-content {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    &-content-inner,
+    &-content-extras,
+    &-group,
+    &-item,
+    &-item-icon,
+    &-item-text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &-content-extras {
+        align-content: center;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    &-group {
+        &::before {
+            align-self: center;
+            width: 1px;
+            height: 40%;
+            margin: 0 6px;
+            background-color: rgba(0, 0, 0, 0.15);
+            content: ' ';
+            pointer-events: none;
+        }
+
+        &:first-child::before {
+            content: none;
+        }
+    }
+
+    &-item {
+        align-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0 4px;
+        color: #595959;
+        background-color: transparent;
+        border: 0;
+        border-radius: 2px;
+        outline: none;
+        box-shadow: none;
+        cursor: pointer;
+        user-select: none;
+
+        &.#{$toolbar-prefix-cls}-item-hidden {
+            display: none;
+        }
+
+        &.#{$toolbar-prefix-cls}-item-disabled,
+        &.#{$toolbar-prefix-cls}-item-disabled:hover {
+            cursor: not-allowed;
+            opacity: 0.4;
+        }
+
+        &.#{$toolbar-prefix-cls}-item-disabled
+        .#{$toolbar-prefix-cls}-item-icon
+        &:active {
+            transform: none;
+        }
+    }
+
+    &-item-icon,
+    &-item-text {
+        align-content: center;
+        align-items: center;
+    }
+
+    &-item-icon {
+        font-size: 14px;
+        transition: transform 50ms ease;
+
+        &:active {
+            transform: scale(1.272019649);
+        }
+    }
+
+    &-item-text {
+        padding-left: 4px;
+        font-size: 12px;
+    }
+
+    &-item-dropdown-wrap {
+        margin-top: -13px;
+    }
+
+    &-item-dropdown-arrow {
+        width: 0;
+        height: 0;
+        margin-left: 6px;
+        border-color: #262626 transparent transparent transparent;
+        border-style: solid;
+        border-width: 5px 4px 0 4px;
+        opacity: 0.4;
+    }
+
+    &#{self}-hover-effect {
+        height: 32px;
+
+        .#{$toolbar-prefix-cls}-item {
+            margin: 4px 2px 4px 0;
+            padding: 0 6px;
+            color: #595959;
+        }
+    }
+
+    &#{self}-hover-effect &-item-disabled#{$toolbar-prefix-cls}-item:hover {
+        color: #595959;
+        background-color: transparent;
+
+        .#{$toolbar-prefix-cls}-item-dropdown-arrow {
+            opacity: 0.4;
+        }
+    }
+
+    &-item#{$toolbar-prefix-cls}-item-active,
+    &#{self}-hover-effect &-item#{$toolbar-prefix-cls}-item-active,
+    &#{self}-hover-effect &-item:hover {
+        color: #262626;
+        background-color: #e0e0e0;
+
+        .#{$toolbar-prefix-cls}-item-dropdown-arrow {
+            opacity: 0.75;
+        }
+    }
+
+    &-item#{$toolbar-prefix-cls}-item-active {
+        margin: 4px 0;
+    }
+
+    &#{self}-big {
+        height: 32px;
+
+        .#{$toolbar-prefix-cls}-content-extras {
+            font-size: 16px;
+        }
+
+        .#{$toolbar-prefix-cls}-item {
+            margin: 4px 4px 4px 0;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+
+        .#{$toolbar-prefix-cls}-item-text {
+            font-size: 14px;
+        }
+
+        .#{$toolbar-prefix-cls}-item-icon {
+            font-size: 16px;
+        }
+    }
+
+    &#{self}-hover-effect#{$toolbar-prefix-cls}-big {
+        height: 40px;
+
+        .#{$toolbar-prefix-cls}-item {
+            padding: 0 10px;
+        }
+    }
+
+    &#{self}-small {
+        height: 22px;
+
+        .#{$toolbar-prefix-cls}-content-extras {
+            font-size: 12px;
+        }
+
+        .#{$toolbar-prefix-cls}-item {
+            padding: 0 3px;
+        }
+
+        .#{$toolbar-prefix-cls}-item-text {
+            margin-right: 2px;
+            padding-left: 2px;
+            font-size: 10px;
+        }
+
+        .#{$toolbar-prefix-cls}-item-icon {
+            font-size: 12px;
+        }
+
+        .#{$toolbar-prefix-cls}-item.#{$toolbar-prefix-cls}-item-active {
+            margin: 2px 0;
+        }
+    }
+
+    &#{self}-hover-effect#{$toolbar-prefix-cls}-small {
+        height: 28px;
+
+        .#{$toolbar-prefix-cls}-item {
+            margin: 4px 2px 4px 0;
+            padding: 0 5px;
+        }
+
+        .#{$toolbar-prefix-cls}-item.#{$toolbar-prefix-cls}-item-active {
+            margin: 4px 2px 4px 0;
+        }
+    }
+
+    &#{self}-align-right {
+        .#{$toolbar-prefix-cls}-content {
+            flex-direction: row-reverse;
+        }
+    }
+}
