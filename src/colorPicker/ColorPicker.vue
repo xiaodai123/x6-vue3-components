@@ -400,5 +400,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import './colorPicker'
+@import './colorPicker';
 </style>

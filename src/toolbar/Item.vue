@@ -1,3 +1,40 @@
+<template>
+    <Dropdown v-if="slotDropdown" :tAnimateFill="true" tAppendTo='parent'>
+        <button type="button" v-bind="buttonProps" :onClick="handleClick">
+            <span v-if="icon && !slotIcon" :class="`${baseCls}-icon ${icon}`"></span>
+            <slot v-if="slotIcon" name="icon"></slot>
+            <span v-if="text && !slotDefault" :class="`${baseCls}-text`">
+                {{text}}
+            </span>
+            <span v-if="slotDefault" :class="`${baseCls}-text`">
+                <slot></slot>
+            </span>
+            <span v-if="dropdownArrow" :class="`${baseCls}-dropdown-arrow`" />
+        </button>
+        <Tooltip v-if="tooltip && !tooltipAsTitle && !disabled" placement="bottom">
+            {{tooltip}}
+        </Tooltip>
+        <template #visible>
+            <slot name="dropdown" :onClick="handleDropdownItemClick"></slot>
+        </template>
+    </Dropdown>
+    <div v-else>
+        <button type="button" v-bind="buttonProps" :onClick="handleClick">
+            <span v-if="icon && !slotIcon" :class="`${baseCls}-icon ${icon}`"></span>
+            <slot v-if="slotIcon" name="icon"></slot>
+            <span v-if="text && !slotDefault" :class="`${baseCls}-text`">
+                {text}
+            </span>
+            <span v-if="slotDefault" :class="`${baseCls}-text`">
+                <slot></slot>
+            </span>
+            <span v-if="dropdownArrow" :class="`${baseCls}-dropdown-arrow`" />
+        </button>
+        <Tooltip v-if="tooltip && !tooltipAsTitle && !disabled" placement="bottom">
+            {{tooltip}}
+        </Tooltip>
+    </div>
+</template>
 <script>
 import { toRefs, computed, inject, provide, ref, reactive } from 'vue'
 import Dropdown from '../dropdown/Dropdown.vue'
@@ -68,75 +105,36 @@ export default {
             }
         }
     },
-    data() {
-        return {
-            slotDropdown: false,
-            toolbarContextClick: (name) => {}
-        }
-    },
-    render() {
-        let slotDefault = ref(!!this.$slots.default)
-        let slotIcon = ref(!!this.$slots.icon)
-        let slotDropdown = ref(!!this.$slots.dropdown)
-        this.slotDropdown = slotDropdown
+    setup(props, context) {
+        let slotDefault = ref(!!context.slots.default)
+        let slotIcon = ref(!!context.slots.icon)
+        let slotDropdown = ref(!!context.slots.dropdown)
         let toolbarContext = inject('toolbarContext')
         let toolbarContextClick = toolbarContext.click
-        this.toolbarContextClick = toolbarContextClick
         let baseCls = toolbarContext.baseCls
         baseCls = `${baseCls}-item`
-
-
-        let { icon, text, hidden, active, disabled, className, tooltip, tooltipAsTitle, dropdownArrow } = this.$props
-        
+        let { icon, text, hidden, active, disabled, className, tooltip, tooltipAsTitle, dropdownArrow } = toRefs(props)
         let buttonProps = {
-            onClick: this.handleClick,
             class: `${baseCls} 
-            ${hidden ? `${baseCls}-hidden` : ''} 
-            ${active ? `${baseCls}-active` : ''} 
-            ${disabled ? `${baseCls}-disabled` : ''} 
+            ${hidden.value ? `${baseCls}-hidden` : ''} 
+            ${active.value ? `${baseCls}-active` : ''} 
+            ${disabled.value ? `${baseCls}-disabled` : ''} 
             ${slotDropdown.value ? `${baseCls}-dropdown` : ''} 
-            ${className}
+            ${className.value}
             `
         }
-        if (tooltip && tooltipAsTitle) {
-            buttonProps.title = tooltip
+        if (tooltip.value && tooltipAsTitle.value) {
+            buttonProps.title = tooltip.value
         }
-
-        let button = (
-            <button type="button" {...buttonProps}>
-                {icon && !slotIcon.value && (<span class={`${baseCls}-icon ${icon}`}></span>)}
-                {slotIcon.value && this.$slots.icon()}
-                {text && !slotDefault.value && (<span class={`${baseCls}-text`}>
-                    {text}
-                </span>)}
-                {slotDefault.value && (<span class={`${baseCls}-text`}>
-                    {this.$slots.default()}
-                </span>)}
-                {dropdownArrow && (<span class={`${baseCls}-dropdown-arrow`} />)}
-            </button>
-        )
-        if (tooltip && !tooltipAsTitle && !disabled) {
-            button = (
-                <>
-                    {button}
-                    <Tooltip placement="bottom">
-                        {tooltip}
-                    </Tooltip>
-                </>
-            )
+        buttonProps = reactive(buttonProps)
+        return {
+            slotDefault,
+            slotIcon,
+            slotDropdown,
+            toolbarContextClick,
+            baseCls,
+            buttonProps
         }
-        return (
-            <>
-                {slotDropdown.value ? (<Dropdown tAnimateFill={true} tAppendTo='parent' v-slots={{
-                    visible: () => (
-                        this.$slots.dropdown({
-                            onClick: this.handleDropdownItemClick
-                        })
-                    )
-                }}>{button}
-                </Dropdown>) : button}
-            </>
-        )
     },
     methods: {
         handleClick() {

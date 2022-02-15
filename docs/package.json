@@ -1,0 +1,30 @@
+{
+  "name": "@x6-vue3-components/docs",
+  "private": true,
+  "version": "1.0.0",
+  "description": "@x6-vue3-components/docs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev .",
+    "docs:build": "vitepress build .",
+    "docs:serve": "vitepress serve .",
+    "register:components": "vitepress-rc"
+  },
+  "author": "daizhi",
+  "license": "ISC",
+  "dependencies": {
+    "@docsearch/js": "^3.0.0-alpha.50",
+    "@vueuse/core": "^7.6.1",
+    "element-plus": "^2.0.2",
+    "normalize.css": "^8.0.1",
+    "prettier": "^2.5.1",
+    "vite": "^2.8.2",
+    "vitepress": "^0.22.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "escape-html": "^1.0.3",
+    "markdown-it": "^12.3.2",
+    "markdown-it-container": "^3.0.0"
+  }
+}

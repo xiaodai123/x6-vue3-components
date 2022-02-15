@@ -5,6 +5,7 @@
 </template>
 <script>
 import { createTippyComponent, defaultTippyProps } from "tippy.vue"
+import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 import "tippy.js/themes/light-border.css";
 import 'tippy.js/dist/backdrop.css';
@@ -129,5 +130,4 @@ export default {
 div[data-tippy-root] {
     pointer-events: unset!important;
 }
-@import "~tippy.js/dist/tippy.css";
 </style>
