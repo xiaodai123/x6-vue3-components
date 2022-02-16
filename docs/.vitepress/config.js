@@ -11,7 +11,7 @@ module.exports = {
             'link',
             {
                 rel: 'icon',
-                href: '/favicon.png',
+                href: '/x6-vue3-components/favicon.png',
             }
         ]
     ],
