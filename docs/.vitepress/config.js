@@ -4,6 +4,7 @@ import sidebar from './config/sidebar'
 module.exports = {
     title: 'X6 Vue3 Components',
     description: 'Vue3 components for building x6 editors',
+    base: '/x6-vue3-components/',
     lang: 'en-US',
     head: [
         [
