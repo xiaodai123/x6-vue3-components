@@ -5,7 +5,7 @@ export default [
     },
     {
         text: '组件',
-        link: '/',
+        link: '/components/introduction',
     },
     {
         text: '案例',

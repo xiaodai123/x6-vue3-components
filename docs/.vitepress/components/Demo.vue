@@ -74,7 +74,7 @@ export default {
             let demosConst = {}
 
             Object.keys(demos.value).forEach((key) => {
-                demosConst[key.replace('../../examples/', '').replace('.vue', '')] =
+                demosConst[key.replace('../../components/', '').replace('.vue', '')] =
                 demos.value[key].default
             })
 

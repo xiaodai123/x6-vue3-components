@@ -5,7 +5,7 @@ heroAlt: Logo image
 heroText: X6 图编辑引擎
 tagline: X6 Vue3 Components
 actionText: Get Started
-actionLink: /components/
+actionLink: /components/guide
 features:
 - title: 快速上手，极易定制
   details: 提供基于低学习成本的 SVG/HTML/CSS 的节点定制能力.

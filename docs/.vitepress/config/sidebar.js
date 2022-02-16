@@ -5,45 +5,47 @@ export default {
 function getDemoSidebar() {
     return [
         {
-            text: "简介"
+            text: "简介",
+            link: "/components/introduction"
         },
         {
-            text: "开发指南"
+            text: "开发指南",
+            link: "/components/guide"
         },
         {
             text: "组件",
             children: [
                 {
                     text: "Menu",
-                    link: "/examples/button/"
+                    link: "/components/button/"
                 },
                 {
                     text: "Dropdown",
-                    link: "/examples/button/"
+                    link: "/components/button/"
                 },
                 {
                     text: "ContextMenu",
-                    link: "/examples/button/"
+                    link: "/components/button/"
                 },
                 {
                     text: "Menubar",
-                    link: "/examples/button/"
+                    link: "/components/button/"
                 },
                 {
                     text: "Toolbar",
-                    link: "/examples/button/"
+                    link: "/components/button/"
                 },
                 {
                     text: "SplitBox",
-                    link: "/examples/button/"
+                    link: "/components/button/"
                 },
                 {
                     text: "Scrollbox",
-                    link: "/examples/button/"
+                    link: "/components/button/"
                 },
                 {
                     text: "ColorPicker",
-                    link: "/examples/button/"
+                    link: "/components/button/"
                 }
             ]
         }

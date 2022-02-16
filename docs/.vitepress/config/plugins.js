@@ -31,7 +31,7 @@ export const mdPlugin = (md) => {
 
                 if (sourceFileToken.type === 'inline') {
                     source = fs.readFileSync(
-                        path.resolve(docRoot, 'examples', `${sourceFile}.vue`),
+                        path.resolve(docRoot, 'components', `${sourceFile}.vue`),
                         'utf-8'
                     )
                     const existingScriptIndex = hoistedTags.findIndex((tag) =>
@@ -40,7 +40,7 @@ export const mdPlugin = (md) => {
                     if (existingScriptIndex === -1) {
                         hoistedTags.push(`
                         <script setup>
-                        const demos = import.meta.globEager('../../examples/${
+                        const demos = import.meta.globEager('../../components/${
                         sourceFile.split('/')[0]
                         }/*.vue')
                         </script>`)
