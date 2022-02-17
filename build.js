@@ -51,8 +51,10 @@ const autoprefixer = require('autoprefixer');
 const vuePlugin = require('rollup-plugin-vue');
 // import { terser } from 'rollup-plugin-terser';
 const terser = require('rollup-plugin-terser').terser;
+// import replace from '@rollup/plugin-replace';
+const replace = require('@rollup/plugin-replace')
 
-const buildInputConfig = function(isDev) {
+const buildInputConfig = function(isDev, windowReplace) {
     let scssInputConfig = {
         processor: () => postcss([autoprefixer({
             overrideBrowserslist: [
@@ -92,6 +94,14 @@ const buildInputConfig = function(isDev) {
     if (!isDev) {
         pluginsConfig.push(terser());
     }
+    pluginsConfig.push(replace({
+        preventAssignment: true,
+        delimiters: ["", ""],
+        values: {
+            "window": windowReplace
+        }
+    }))
+    
 
     let rollupInputConfig = {
         input: `${filesInfo.srcFolder}/index.js`,
@@ -118,8 +128,10 @@ gulp.task('prepare', function (done) {
 gulp.task('rollup', function (done) {
     sh.echo('> Rollup:');
     (async function () {
-        let devInputConfig = buildInputConfig(true)
-        let prodInputConfig = buildInputConfig(false)
+        let devInputConfig = buildInputConfig(true, "globalThis")
+        let prodInputConfig = buildInputConfig(false, "globalThis")
+        let devEsmInputConfig = buildInputConfig(true, "window")
+        let prodEsmInputConfig = buildInputConfig(false, "window")
         let es5umdBundle = await rollup.rollup({
             ...devInputConfig,
             plugins: devInputConfig.plugins
@@ -148,26 +160,26 @@ gulp.task('rollup', function (done) {
 
 
         let es6esmBundle = await rollup.rollup({
-            ...devInputConfig,
-            plugins: devInputConfig.plugins
+            ...devEsmInputConfig,
+            plugins: devEsmInputConfig.plugins
         });
         await es6esmBundle.write({
             file: packagePaths.module,
             format: 'esm',
             ...rollupOutputConfig
         });
-        sh.echo(chalk.yellowBright(`  [esm]: `) + chalk.greenBright(`${devInputConfig.input} → ${packagePaths.module}`));
+        sh.echo(chalk.yellowBright(`  [esm]: `) + chalk.greenBright(`${devEsmInputConfig.input} → ${packagePaths.module}`));
 
         let es6esmMinBundle = await rollup.rollup({
-            ...prodInputConfig,
-            plugins: prodInputConfig.plugins
+            ...prodEsmInputConfig,
+            plugins: prodEsmInputConfig.plugins
         });
         await es6esmMinBundle.write({
             file: packagePaths.moduleMin,
             format: 'esm',
             ...rollupOutputConfig
         });
-        sh.echo(chalk.yellowBright(`  [esm.min]: `) + chalk.greenBright(`${prodInputConfig.input} → ${packagePaths.moduleMin}`));
+        sh.echo(chalk.yellowBright(`  [esm.min]: `) + chalk.greenBright(`${prodEsmInputConfig.input} → ${packagePaths.moduleMin}`));
         
         filesInfo.cache.forEach(function (cacheFolder) {
             if (sh.test('-d', cacheFolder)) {

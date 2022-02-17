@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o,d as a}from"./app.74df0e71.js";const u='{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/log/index.md"}',n={},s=a("p",null,"log",-1),r=[s];function c(_,d,i,l,p,f){return t(),o("div",null,r)}var h=e(n,[["render",c]]);export{u as __pageData,h as default};

@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o,d as n}from"./app.74df0e71.js";const u='{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/icon/index.md"}',a={},s=n("p",null,"icon",-1),c=[s];function r(i,_,d,p,l,f){return t(),o("div",null,c)}var h=e(a,[["render",r]]);export{u as __pageData,h as default};

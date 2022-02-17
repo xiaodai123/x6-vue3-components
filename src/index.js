@@ -38,7 +38,7 @@ const _default = {
     install,
 };
 
-export const X6Vue3Components = {
+export {
     install,
     // version,
     X6ColorPicker,

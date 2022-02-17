@@ -1548,7 +1548,7 @@
                       childNodes = currentTarget.parentElement.childNodes || [];
                   }
                   let shoudDeactive = false;
-                  if (relatedTarget !== window) {
+                  if (relatedTarget !== globalThis) {
                       for (let i = 0, l = childNodes.length; i < l; i += 1) {
                           const child = childNodes[i];
                           if (
@@ -1960,13 +1960,13 @@
   script$5.__file = "src/splitBox/Box.vue";
 
   var animationFrameTime = 0;
-  var nativeRequestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
-  var cancelAnimationFrame = (window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.clearTimeout).bind(window);
-  var requestAnimationFrame = nativeRequestAnimationFrame ? nativeRequestAnimationFrame.bind(window) : function (callback) {
+  var nativeRequestAnimationFrame = globalThis.requestAnimationFrame || globalThis.webkitRequestAnimationFrame;
+  var cancelAnimationFrame = (globalThis.cancelAnimationFrame || globalThis.webkitCancelAnimationFrame || globalThis.clearTimeout).bind(globalThis);
+  var requestAnimationFrame = nativeRequestAnimationFrame ? nativeRequestAnimationFrame.bind(globalThis) : function (callback) {
     var currTime = Date.now();
     var timeDelay = Math.max(0, 16 - (currTime - animationFrameTime));
     animationFrameTime = currTime + timeDelay;
-    return window.setTimeout(function () {
+    return globalThis.setTimeout(function () {
       callback(Date.now());
     }, timeDelay);
   };
@@ -2466,8 +2466,8 @@
 
               let primaryBox = isPrimaryFirst ? this.box1Elem.$el : this.box2Elem.$el;
               let secondBox = isPrimaryFirst ? this.box2Elem.$el : this.box1Elem.$el;
-              let box1Order = parseInt(window.getComputedStyle(primaryBox).order, 10);
-              let box2Order = parseInt(window.getComputedStyle(secondBox).order, 10);
+              let box1Order = parseInt(globalThis.getComputedStyle(primaryBox).order, 10);
+              let box2Order = parseInt(globalThis.getComputedStyle(secondBox).order, 10);
               if (box1Order > box2Order) {
                   delta = -delta;
               }
@@ -3037,28 +3037,24 @@
     // version,
     install: install
   };
-  var X6Vue3Components = {
-    install: install,
-    // version,
-    X6ColorPicker: X6ColorPicker,
-    X6ContextMenu: X6ContextMenu,
-    X6Dropdown: X6Dropdown,
-    X6Menu: X6Menu,
-    X6SubMenu: X6SubMenu,
-    X6MenuItem: X6MenuItem,
-    X6Divider: X6Divider,
-    X6Menubar: X6Menubar,
-    X6MenubarItem: X6MenubarItem,
-    X6Scrollbox: X6Scrollbox,
-    X6SplitBox: X6SplitBox,
-    X6Toolbar: X6Toolbar,
-    X6Group: X6Group,
-    X6Item: X6Item,
-    X6Tooltip: X6Tooltip
-  };
 
-  exports.X6Vue3Components = X6Vue3Components;
+  exports.X6ColorPicker = X6ColorPicker;
+  exports.X6ContextMenu = X6ContextMenu;
+  exports.X6Divider = X6Divider;
+  exports.X6Dropdown = X6Dropdown;
+  exports.X6Group = X6Group;
+  exports.X6Item = X6Item;
+  exports.X6Menu = X6Menu;
+  exports.X6MenuItem = X6MenuItem;
+  exports.X6Menubar = X6Menubar;
+  exports.X6MenubarItem = X6MenubarItem;
+  exports.X6Scrollbox = X6Scrollbox;
+  exports.X6SplitBox = X6SplitBox;
+  exports.X6SubMenu = X6SubMenu;
+  exports.X6Toolbar = X6Toolbar;
+  exports.X6Tooltip = X6Tooltip;
   exports["default"] = _default;
+  exports.install = install;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
