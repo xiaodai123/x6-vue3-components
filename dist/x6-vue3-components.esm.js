@@ -3019,5 +3019,37 @@ var X6Item = withNoopInstall(script);
 
 var X6Tooltip = withInstall(script$g);
 
-export { X6ColorPicker, X6ContextMenu, X6Divider, X6Dropdown, X6Group, X6Item, X6Menu, X6MenuItem, X6Menubar, X6MenubarItem, X6Scrollbox, X6SplitBox, X6SubMenu, X6Toolbar, X6Tooltip };
+var components = [X6ColorPicker, X6ContextMenu, X6Dropdown, X6Menu, X6SubMenu, X6MenuItem, X6Divider, X6Menubar, X6MenubarItem, X6Scrollbox, X6SplitBox, X6Toolbar, X6Group, X6Item, X6Tooltip]; // const version = path.resolve('../package.json').version
+
+var install = function install(app) {
+  components.forEach(function (component) {
+    app.component("X6".concat(component.name), component);
+  });
+};
+
+var _default = {
+  // version,
+  install: install
+};
+var X6Vue3Components = {
+  install: install,
+  // version,
+  X6ColorPicker: X6ColorPicker,
+  X6ContextMenu: X6ContextMenu,
+  X6Dropdown: X6Dropdown,
+  X6Menu: X6Menu,
+  X6SubMenu: X6SubMenu,
+  X6MenuItem: X6MenuItem,
+  X6Divider: X6Divider,
+  X6Menubar: X6Menubar,
+  X6MenubarItem: X6MenubarItem,
+  X6Scrollbox: X6Scrollbox,
+  X6SplitBox: X6SplitBox,
+  X6Toolbar: X6Toolbar,
+  X6Group: X6Group,
+  X6Item: X6Item,
+  X6Tooltip: X6Tooltip
+};
+
+export { X6Vue3Components, _default as default };
 //# sourceMappingURL=x6-vue3-components.esm.js.map

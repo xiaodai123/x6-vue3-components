@@ -18,10 +18,11 @@ module.exports = {
     themeConfig: {
         logo: '/favicon.png',
         docsDir: 'docs',
-        algolia: {
-            apiKey: '377f2b647a96d9b1d62e4780f2344da2',
-            appId: 'BH4D9OD16A'
-        },
+        // algolia: {
+        //     apiKey: '8c1a3c4e177b8cbd2c7df09c80bd9fb8',
+        //     appId: 'B45Y19Z2OS',
+        //     indexName: 'x6-vue3-components'
+        // },
         nav,
         sidebar
     },

@@ -25,20 +25,32 @@ const rollupUmdGlobals = {
     'vue': 'Vue'
 }
 
-import sh from 'shelljs';
-import chalk from 'chalk';
-import gulp from 'gulp';
-import { rollup } from 'rollup';
+// import sh from 'shelljs';
+const sh = require('shelljs');
+// import chalk from 'chalk';
+const chalk = require('chalk');
+// import gulp from 'gulp';
+const gulp = require('gulp');
+// import { rollup } from 'rollup';
+const rollup = require('rollup');
 // 将 CommonJS 模块转换为 ES6 供 rollup 处理
-import commonjs from '@rollup/plugin-commonjs';
+// import commonjs from '@rollup/plugin-commonjs';
+const commonjs = require('@rollup/plugin-commonjs');
 // rollup 无法识别 node_modules 中的包，帮助 rollup 查找外部模块，然后导入
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { babel } from '@rollup/plugin-babel';
-import scss from 'rollup-plugin-scss';
-import postcss from 'postcss';
-import autoprefixer from 'autoprefixer';
-import vuePlugin from 'rollup-plugin-vue';
-import { terser } from 'rollup-plugin-terser';
+// import { nodeResolve } from '@rollup/plugin-node-resolve';
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
+// import { babel } from '@rollup/plugin-babel';
+const { babel } = require('@rollup/plugin-babel');
+// import scss from 'rollup-plugin-scss';
+const scss = require('rollup-plugin-scss');
+// import postcss from 'postcss';
+const postcss = require('postcss');
+// import autoprefixer from 'autoprefixer';
+const autoprefixer = require('autoprefixer');
+// import vuePlugin from 'rollup-plugin-vue';
+const vuePlugin = require('rollup-plugin-vue');
+// import { terser } from 'rollup-plugin-terser';
+const terser = require('rollup-plugin-terser').terser;
 
 const buildInputConfig = function(isDev) {
     let scssInputConfig = {
@@ -108,7 +120,7 @@ gulp.task('rollup', function (done) {
     (async function () {
         let devInputConfig = buildInputConfig(true)
         let prodInputConfig = buildInputConfig(false)
-        let es5umdBundle = await rollup({
+        let es5umdBundle = await rollup.rollup({
             ...devInputConfig,
             plugins: devInputConfig.plugins
         });
@@ -121,7 +133,7 @@ gulp.task('rollup', function (done) {
         });
         sh.echo(chalk.yellowBright(`  [umd]: `) + chalk.greenBright(`${devInputConfig.input} → ${packagePaths.main}`));
 
-        let es5umdMinBundle = await rollup({
+        let es5umdMinBundle = await rollup.rollup({
             ...prodInputConfig,
             plugins: prodInputConfig.plugins
         });
@@ -135,7 +147,7 @@ gulp.task('rollup', function (done) {
         sh.echo(chalk.yellowBright(`  [umd.min]: `) + chalk.greenBright(`${prodInputConfig.input} → ${packagePaths.mainMin}`));
 
 
-        let es6esmBundle = await rollup({
+        let es6esmBundle = await rollup.rollup({
             ...devInputConfig,
             plugins: devInputConfig.plugins
         });
@@ -146,7 +158,7 @@ gulp.task('rollup', function (done) {
         });
         sh.echo(chalk.yellowBright(`  [esm]: `) + chalk.greenBright(`${devInputConfig.input} → ${packagePaths.module}`));
 
-        let es6esmMinBundle = await rollup({
+        let es6esmMinBundle = await rollup.rollup({
             ...prodInputConfig,
             plugins: prodInputConfig.plugins
         });

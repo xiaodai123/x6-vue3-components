@@ -3025,21 +3025,40 @@
 
   var X6Tooltip = withInstall(script$g);
 
-  exports.X6ColorPicker = X6ColorPicker;
-  exports.X6ContextMenu = X6ContextMenu;
-  exports.X6Divider = X6Divider;
-  exports.X6Dropdown = X6Dropdown;
-  exports.X6Group = X6Group;
-  exports.X6Item = X6Item;
-  exports.X6Menu = X6Menu;
-  exports.X6MenuItem = X6MenuItem;
-  exports.X6Menubar = X6Menubar;
-  exports.X6MenubarItem = X6MenubarItem;
-  exports.X6Scrollbox = X6Scrollbox;
-  exports.X6SplitBox = X6SplitBox;
-  exports.X6SubMenu = X6SubMenu;
-  exports.X6Toolbar = X6Toolbar;
-  exports.X6Tooltip = X6Tooltip;
+  var components = [X6ColorPicker, X6ContextMenu, X6Dropdown, X6Menu, X6SubMenu, X6MenuItem, X6Divider, X6Menubar, X6MenubarItem, X6Scrollbox, X6SplitBox, X6Toolbar, X6Group, X6Item, X6Tooltip]; // const version = path.resolve('../package.json').version
+
+  var install = function install(app) {
+    components.forEach(function (component) {
+      app.component("X6".concat(component.name), component);
+    });
+  };
+
+  var _default = {
+    // version,
+    install: install
+  };
+  var X6Vue3Components = {
+    install: install,
+    // version,
+    X6ColorPicker: X6ColorPicker,
+    X6ContextMenu: X6ContextMenu,
+    X6Dropdown: X6Dropdown,
+    X6Menu: X6Menu,
+    X6SubMenu: X6SubMenu,
+    X6MenuItem: X6MenuItem,
+    X6Divider: X6Divider,
+    X6Menubar: X6Menubar,
+    X6MenubarItem: X6MenubarItem,
+    X6Scrollbox: X6Scrollbox,
+    X6SplitBox: X6SplitBox,
+    X6Toolbar: X6Toolbar,
+    X6Group: X6Group,
+    X6Item: X6Item,
+    X6Tooltip: X6Tooltip
+  };
+
+  exports.X6Vue3Components = X6Vue3Components;
+  exports["default"] = _default;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
