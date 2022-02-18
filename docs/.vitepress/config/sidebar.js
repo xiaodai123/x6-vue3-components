@@ -16,36 +16,44 @@ function getDemoSidebar() {
             text: "组件",
             children: [
                 {
-                    text: "Menu",
+                    text: "例子",
                     link: "/components/button/"
                 },
                 {
-                    text: "Dropdown",
-                    link: "/components/button/"
+                    text: "X6Menu",
+                    link: "/components/menu/"
                 },
                 {
-                    text: "ContextMenu",
-                    link: "/components/button/"
+                    text: "X6Dropdown",
+                    link: "/components/dropdown/"
                 },
                 {
-                    text: "Menubar",
-                    link: "/components/button/"
+                    text: "X6ContextMenu",
+                    link: "/components/contextmenu/"
                 },
                 {
-                    text: "Toolbar",
-                    link: "/components/button/"
+                    text: "X6Menubar",
+                    link: "/components/menubar/"
                 },
                 {
-                    text: "SplitBox",
-                    link: "/components/button/"
+                    text: "X6Toolbar",
+                    link: "/components/toolbar/"
                 },
                 {
-                    text: "Scrollbox",
-                    link: "/components/button/"
+                    text: "X6SplitBox",
+                    link: "/components/splitbox/"
                 },
                 {
-                    text: "ColorPicker",
-                    link: "/components/button/"
+                    text: "X6Scrollbox",
+                    link: "/components/scrollbox/"
+                },
+                {
+                    text: "X6Tooltip",
+                    link: "/components/tooltip/"
+                },
+                {
+                    text: "X6ColorPicker",
+                    link: "/components/colorPicker/"
                 }
             ]
         }

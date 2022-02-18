@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o,d as a}from"./app.12117a9a.js";const h='{"title":"\u63D0\u793A","description":"","frontmatter":{},"headers":[],"relativePath":"components/tooltip/index.md"}',n={},s=a("h1",{id:"\u63D0\u793A",tabindex:"-1"},"\u63D0\u793A",-1),r=[s];function c(d,i,_,p,l,f){return t(),o("div",null,r)}var x=e(n,[["render",c]]);export{h as __pageData,x as default};

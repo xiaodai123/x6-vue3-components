@@ -18,7 +18,8 @@
     "normalize.css": "^8.0.1",
     "prettier": "^2.5.1",
     "vite": "^2.8.2",
-    "vitepress": "^0.22.1"
+    "vitepress": "^0.22.1",
+    "x6-vue3-components": "^1.0.6"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

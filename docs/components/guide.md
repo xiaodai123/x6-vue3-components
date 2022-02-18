@@ -25,75 +25,76 @@ $ yarn add x6-vue3-components
 ```js
 import { X6Menu } from 'x6-vue3-components'
 // css
-import 'x6-vue3-components/dist/x6-vue3-components.css'
+import 'x6-vue3-components/lib/x6-vue3-components.css'
 // or min css
-import 'x6-vue3-components/dist/x6-vue3-components.min.css'
+import 'x6-vue3-components/lib/x6-vue3-components.min.css'
 ```
 
-我们强烈建议使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 插件来自动引用组件样式，在 `.babelrc` 或 babel-loader 中添加如下配置：
+我们强烈建议使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 插件来自动引用组件样式，在 `babel.config.js` 或 babel-loader 中添加如下配置：
 
 ```js
 {
-  "plugins": [
-    [
-      "import",
-      {
-        "libraryName": "x6-vue3-components",
-        "libraryDirectory": "es", // es or lib
-        "style": true,
-        "transformToDefaultImport": true
-      }
+    plugins: [
+        [
+            "import",
+            {
+                libraryName: "x6-vue3-components",
+                libraryDirectory: "lib",
+                style: (name) => {
+                    const libDirIndex = name.lastIndexOf('/')
+                    const libDir = name.substring(0, libDirIndex)
+                    const fileName = name.substr(libDirIndex + 1)
+                    return `${libDir}/${fileName}.css`;
+                }
+            }
+        ]
     ]
-  ]
 }
 ```
 
 这样我们引入组件时就会自动引入对应的样式：
 
-```ts
-import { Menu } from '@antv/x6-react-components'
+```js
+import { X6Menu } from 'x6-vue3-components'
 ```
 
-如果是使用 `script` 标签引入，使用方式如下：
+如果是使用引入后报错：`[Vue warn]: Invalid VNode type: Symbol(Comment) (symbol)`。请参考该[issues](https://github.com/vuejs/core/issues/2064#issuecomment-797365133)。具体修改如下：
 
-```html
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>X6-React-Components</title>
-  <link rel="stylesheet" href="https://unpkg.com/@antv/x6-react-components/dist/index.css">
-</head>
-<body>
-  <div id="container"></div>
-  <script src="babel.js"></script>
-  <script src="react.js"></script>
-  <script src="react-dom.js"></script>
-  <script src="https://unpkg.com/@antv/x6-react-components/dist/x6-react-components.js"></script>
-  <script type="text/babel">
-    const Menu = X6ReactComponents.Menu
-    const MenuItem = Menu.Item
-    ReactDOM.render((
-      <Menu >
-        <MenuItem name="undo"  hotkey="Cmd+Z" text="Undo" />
-        <MenuItem name="redo"  hotkey="Cmd+Shift+Z" text="Redo" />
-      </Menu>
-    ), document.getElementById('container'))
-  </script>
-</body>
-</html>
+With webpack and Vue CLI in `vue.config.js`
+```js
+const path = require('path')
+
+module.exports = {
+  configureWebpack: {
+    resolve: {
+      symlinks: false,
+      alias: {
+        vue: path.resolve('./node_modules/vue')
+      }
+    }
+  }
+}
+```
+
+With Vite in `vite.config.js`
+```js
+export default {
+  resolve: {
+    dedupe: ['vue']
+  }
+}
 ```
 
 ## 组件
 
 点击下面链接查看每个组件的使用文档。
 
-- [Menu](/en/docs/api/ui/menu) 菜单
-- [Dropdown](/en/docs/api/ui/dropdown) 下拉菜单
-- [ContextMenu](/en/docs/api/ui/contextmenu) 右键菜单
-- [Menubar](/en/docs/api/ui/menubar) 菜单栏
-- [Toolbar](/en/docs/api/ui/toolbar) 工具栏
-- [SplitBox](/en/docs/api/ui/splitbox) 分割容器
-- [ScrollBox](/en/docs/api/ui/scrollbox) 自定义滚动条的容器
-- [AutoScrollBox](/en/docs/api/ui/auto-scrollbox) 自动根据内容大小设置和更新容器的滚动条
-- [ColorPicker](/en/docs/api/ui/color-picker) 颜色选择器
+- [X6Menu](/components/menu/) 菜单
+- [X6Dropdown](/components/dropdown/) 下拉菜单
+- [X6ContextMenu](/components/contextmenu/) 右键菜单
+- [X6Menubar](/components/menubar/) 菜单栏
+- [X6Toolbar](/components/toolbar/) 工具栏
+- [X6SplitBox](/components/splitbox/) 分割容器
+- [X6ScrollBox](/components/scrollbox/) 自定义滚动条的容器
+- [X6Tooltip](/components/tooltip/) 提示
+- [X6ColorPicker](/components/colorPicker/) 颜色选择器

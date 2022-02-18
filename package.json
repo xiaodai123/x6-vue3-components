@@ -1,6 +1,6 @@
 {
     "name": "x6-vue3-components",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "X6 Components for Vue3.",
     "keywords": [
         "antvx6",
@@ -8,8 +8,8 @@
         "vue3"
     ],
     "files": [
-        "src",
-        "dist"
+        "components",
+        "lib"
     ],
     "homepage": "https://daizhigitee.gitee.io/x6-vue3-components/",
     "repository": {
