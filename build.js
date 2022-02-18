@@ -3,17 +3,35 @@ const rollupUmdName = 'X6Vue3Components';
 
 const filesInfo = {
     fileName: packageName,
-    srcFolder: './src',
-    distFolder: 'dist',
+    srcFolder: './components',
+    libFolder: 'lib',
     cache: []
 }
 
 const packagePaths = {
-    main: `${filesInfo.distFolder}/${filesInfo.fileName}.js`,
-    module: `${filesInfo.distFolder}/${filesInfo.fileName}.esm.js`,
-    mainMin: `${filesInfo.distFolder}/${filesInfo.fileName}.min.js`,
-    moduleMin: `${filesInfo.distFolder}/${filesInfo.fileName}.esm.min.js`
+    main: `${filesInfo.libFolder}/${filesInfo.fileName}.js`,
+    module: `${filesInfo.libFolder}/${filesInfo.fileName}.esm.js`,
+    mainMin: `${filesInfo.libFolder}/${filesInfo.fileName}.min.js`,
+    moduleMin: `${filesInfo.libFolder}/${filesInfo.fileName}.esm.min.js`
 }
+
+const components = [
+    'x6-color-picker',
+    'x6-context-menu',
+    'x6-divider',
+    'x6-dropdown',
+    'x6-group',
+    'x6-item',
+    'x6-menu',
+    'x6-menubar',
+    'x6-menubar-item',
+    'x6-menu-item',
+    'x6-scrollbox',
+    'x6-split-box',
+    'x6-sub-menu',
+    'x6-toolbar',
+    'x6-tooltip'
+]
 
 const rollupUmdGlobals = {
     'add-dom-event-listener': 'addEventListener',
@@ -54,7 +72,7 @@ const terser = require('rollup-plugin-terser').terser;
 // import replace from '@rollup/plugin-replace';
 const replace = require('@rollup/plugin-replace')
 
-const buildInputConfig = function(isDev, windowReplace) {
+const buildInputConfig = function(isDev, windowReplace, srcFlod = '') {
     let scssInputConfig = {
         processor: () => postcss([autoprefixer({
             overrideBrowserslist: [
@@ -65,7 +83,7 @@ const buildInputConfig = function(isDev, windowReplace) {
             ]
         })]),
         includePaths: [
-            "./src/",
+            "./components/",
             "node_modules/"
         ]
     }
@@ -102,9 +120,12 @@ const buildInputConfig = function(isDev, windowReplace) {
         }
     }))
     
-
+    let input = `${filesInfo.srcFolder}/index.js`
+    if (srcFlod) {
+        input = `${filesInfo.srcFolder}/${srcFlod}/index.js`
+    }
     let rollupInputConfig = {
-        input: `${filesInfo.srcFolder}/index.js`,
+        input,
         external: [...Object.keys(rollupUmdGlobals)],
         plugins: pluginsConfig
     }
@@ -120,8 +141,8 @@ const rollupOutputConfig = {
 sh.echo(chalk.cyanBright('Start building:'));
 
 gulp.task('prepare', function (done) {
-    sh.echo(`> Removing ${filesInfo.distFolder}`);
-    sh.rm('-rf', filesInfo.distFolder);
+    sh.echo(`> Removing ${filesInfo.libFolder}`);
+    sh.rm('-rf', filesInfo.libFolder);
     done();
 });
 
@@ -143,6 +164,7 @@ gulp.task('rollup', function (done) {
             format: 'umd',
             ...rollupOutputConfig
         });
+
         sh.echo(chalk.yellowBright(`  [umd]: `) + chalk.greenBright(`${devInputConfig.input} → ${packagePaths.main}`));
 
         let es5umdMinBundle = await rollup.rollup({
@@ -186,6 +208,24 @@ gulp.task('rollup', function (done) {
                 sh.rm('-rf', cacheFolder);
             }
         });
+
+        for(let i = 0; i < components.length; i++) {
+            let component = components[i]
+            let cjsumdBundleConfig = buildInputConfig(true, "window", component)
+            let cjsumdBundle = await rollup.rollup({
+                ...cjsumdBundleConfig,
+                plugins: cjsumdBundleConfig.plugins
+            });
+            let file = `${filesInfo.libFolder}/${component}.js`
+            await cjsumdBundle.write({
+                globals: rollupUmdGlobals,
+                file,
+                format: 'cjs',
+                ...rollupOutputConfig
+            });
+
+            sh.echo(chalk.yellowBright(`  [${component}]: `) + chalk.greenBright(`${cjsumdBundleConfig.input} → ${file}`));
+        }
 
         sh.echo(chalk.greenBright('Building finished!'));
         done();

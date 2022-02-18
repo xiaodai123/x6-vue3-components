@@ -18,13 +18,14 @@
     "normalize.css": "^8.0.1",
     "prettier": "^2.5.1",
     "vite": "^2.8.2",
-    "vitepress": "^0.22.1",
-    "x6-vue3-components": "^1.0.0"
+    "vitepress": "^0.22.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "escape-html": "^1.0.3",
     "markdown-it": "^12.3.2",
-    "markdown-it-container": "^3.0.0"
+    "markdown-it-anchor": "^8.4.1",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-toc": "^1.1.0"
   }
 }

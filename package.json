@@ -1,6 +1,6 @@
 {
     "name": "x6-vue3-components",
-    "version": "1.0.0",
+    "version": "1.0.4",
     "description": "X6 Components for Vue3.",
     "keywords": [
         "antvx6",
@@ -19,8 +19,8 @@
     "bugs": {
         "url": "https://github.com/xiaodai123/x6-vue3-components/issues"
     },
-    "main": "dist/x6-vue3-components.min.js",
-    "module": "dist/x6-vue3-components.esm.min.js",
+    "main": "lib/x6-vue3-components.min.js",
+    "module": "lib/x6-vue3-components.esm.min.js",
     "author": "daizhi",
     "license": "MIT",
     "devDependencies": {

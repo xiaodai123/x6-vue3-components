@@ -1,0 +1,6 @@
+@import './variables.scss';
+
+$toolbar-group-prefix-cls: '#{$x6-prefix}-toolbar-group';
+.#{$toolbar-group-prefix-cls} {
+    position: relative;
+}

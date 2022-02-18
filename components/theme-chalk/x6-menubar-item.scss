@@ -1,0 +1,6 @@
+@import './variables.scss';
+
+$menubar-item-prefix-cls: '#{$x6-prefix}-menubar-item';
+.#{$menubar-item-prefix-cls} {
+    position: relative;
+}

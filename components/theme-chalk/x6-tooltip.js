@@ -1,0 +1,1 @@
+import './x6-tooltip.scss'

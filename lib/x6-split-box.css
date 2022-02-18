@@ -1,0 +1,13 @@
+.x6-split-box-vertical > .x6-split-box-resizer {
+  width: 4px;
+  margin: 0 -2px;
+  background: transparent;
+}
+.x6-split-box-horizontal > .x6-split-box-resizer {
+  height: 4px;
+  margin: -2px;
+  background: transparent;
+}
+.x6-split-box-disabled > .x6-split-box-resizer {
+  cursor: default;
+}

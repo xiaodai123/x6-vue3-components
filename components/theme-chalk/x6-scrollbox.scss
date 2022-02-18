@@ -1,0 +1,6 @@
+@import './variables.scss';
+
+$scrollbox-prefix-cls: '#{$x6-prefix}-scrollbox';
+.#{$scrollbox-prefix-cls} {
+    position: relative;
+}
