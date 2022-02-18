@@ -1,5 +1,6 @@
 ---
 title: 开发指南
+base: /x6-vue3-components/
 ---
 
 # {{ $frontmatter.title }}
@@ -89,12 +90,14 @@ export default {
 
 点击下面链接查看每个组件的使用文档。
 
-- [X6Menu](/components/menu/) 菜单
-- [X6Dropdown](/components/dropdown/) 下拉菜单
-- [X6ContextMenu](/components/contextmenu/) 右键菜单
-- [X6Menubar](/components/menubar/) 菜单栏
-- [X6Toolbar](/components/toolbar/) 工具栏
-- [X6SplitBox](/components/splitbox/) 分割容器
-- [X6ScrollBox](/components/scrollbox/) 自定义滚动条的容器
-- [X6Tooltip](/components/tooltip/) 提示
-- [X6ColorPicker](/components/colorPicker/) 颜色选择器
+
+
+- [X6Menu](./menu/) 菜单
+- [X6Dropdown](./dropdown/) 下拉菜单
+- [X6ContextMenu](./contextmenu/) 右键菜单
+- [X6Menubar](./menubar/) 菜单栏
+- [X6Toolbar](./toolbar/) 工具栏
+- [X6SplitBox](./splitbox/) 分割容器
+- [X6ScrollBox](./scrollbox/) 自定义滚动条的容器
+- [X6Tooltip](./tooltip/) 提示
+- [X6ColorPicker](./colorPicker/) 颜色选择器
