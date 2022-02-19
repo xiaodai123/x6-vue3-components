@@ -332,108 +332,6 @@ div[data-tippy-root] {
   z-index: 1;
 }
 
-.tippy-box[data-placement^=top] > .tippy-backdrop {
-  -webkit-transform-origin: 0 25%;
-          transform-origin: 0 25%;
-  border-radius: 40% 40% 0 0;
-}
-
-.tippy-box[data-placement^=top] > .tippy-backdrop[data-state=visible] {
-  -webkit-transform: scale(1) translate(-50%, -55%);
-          transform: scale(1) translate(-50%, -55%);
-}
-
-.tippy-box[data-placement^=top] > .tippy-backdrop[data-state=hidden] {
-  -webkit-transform: scale(0.2) translate(-50%, -45%);
-          transform: scale(0.2) translate(-50%, -45%);
-}
-
-.tippy-box[data-placement^=bottom] > .tippy-backdrop {
-  -webkit-transform-origin: 0 -50%;
-          transform-origin: 0 -50%;
-  border-radius: 0 0 30% 30%;
-}
-
-.tippy-box[data-placement^=bottom] > .tippy-backdrop[data-state=visible] {
-  -webkit-transform: scale(1) translate(-50%, -45%);
-          transform: scale(1) translate(-50%, -45%);
-}
-
-.tippy-box[data-placement^=bottom] > .tippy-backdrop[data-state=hidden] {
-  -webkit-transform: scale(0.2) translate(-50%);
-          transform: scale(0.2) translate(-50%);
-}
-
-.tippy-box[data-placement^=left] > .tippy-backdrop {
-  -webkit-transform-origin: 50% 0;
-          transform-origin: 50% 0;
-  border-radius: 50% 0 0 50%;
-}
-
-.tippy-box[data-placement^=left] > .tippy-backdrop[data-state=visible] {
-  -webkit-transform: scale(1) translate(-50%, -50%);
-          transform: scale(1) translate(-50%, -50%);
-}
-
-.tippy-box[data-placement^=left] > .tippy-backdrop[data-state=hidden] {
-  -webkit-transform: scale(0.2) translate(-75%, -50%);
-          transform: scale(0.2) translate(-75%, -50%);
-}
-
-.tippy-box[data-placement^=right] > .tippy-backdrop {
-  -webkit-transform-origin: -50% 0;
-          transform-origin: -50% 0;
-  border-radius: 0 50% 50% 0;
-}
-
-.tippy-box[data-placement^=right] > .tippy-backdrop[data-state=visible] {
-  -webkit-transform: scale(1) translate(-50%, -50%);
-          transform: scale(1) translate(-50%, -50%);
-}
-
-.tippy-box[data-placement^=right] > .tippy-backdrop[data-state=hidden] {
-  -webkit-transform: scale(0.2) translate(-25%, -50%);
-          transform: scale(0.2) translate(-25%, -50%);
-}
-
-.tippy-box[data-animatefill] {
-  background-color: transparent !important;
-}
-
-.tippy-backdrop {
-  position: absolute;
-  background-color: #333;
-  border-radius: 50%;
-  width: calc(110% + 32px);
-  left: 50%;
-  top: 50%;
-  z-index: -1;
-  -webkit-transition: all cubic-bezier(0.46, 0.1, 0.52, 0.98);
-  transition: all cubic-bezier(0.46, 0.1, 0.52, 0.98);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.tippy-backdrop[data-state=hidden] {
-  opacity: 0;
-}
-
-.tippy-backdrop:after {
-  content: "";
-  float: left;
-  padding-top: 100%;
-}
-
-.tippy-backdrop + .tippy-content {
-  -webkit-transition-property: opacity;
-  transition-property: opacity;
-  will-change: opacity;
-}
-
-.tippy-backdrop + .tippy-content[data-state=hidden] {
-  opacity: 0;
-}
-
 .tippy-box[data-theme~=light-border] {
   background-color: #fff;
   background-clip: padding-box;
@@ -547,6 +445,132 @@ div[data-tippy-root] {
   height: 6px;
 }
 
+.tippy-box[data-placement^=top] > .tippy-backdrop {
+  -webkit-transform-origin: 0 25%;
+          transform-origin: 0 25%;
+  border-radius: 40% 40% 0 0;
+}
+
+.tippy-box[data-placement^=top] > .tippy-backdrop[data-state=visible] {
+  -webkit-transform: scale(1) translate(-50%, -55%);
+          transform: scale(1) translate(-50%, -55%);
+}
+
+.tippy-box[data-placement^=top] > .tippy-backdrop[data-state=hidden] {
+  -webkit-transform: scale(0.2) translate(-50%, -45%);
+          transform: scale(0.2) translate(-50%, -45%);
+}
+
+.tippy-box[data-placement^=bottom] > .tippy-backdrop {
+  -webkit-transform-origin: 0 -50%;
+          transform-origin: 0 -50%;
+  border-radius: 0 0 30% 30%;
+}
+
+.tippy-box[data-placement^=bottom] > .tippy-backdrop[data-state=visible] {
+  -webkit-transform: scale(1) translate(-50%, -45%);
+          transform: scale(1) translate(-50%, -45%);
+}
+
+.tippy-box[data-placement^=bottom] > .tippy-backdrop[data-state=hidden] {
+  -webkit-transform: scale(0.2) translate(-50%);
+          transform: scale(0.2) translate(-50%);
+}
+
+.tippy-box[data-placement^=left] > .tippy-backdrop {
+  -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+  border-radius: 50% 0 0 50%;
+}
+
+.tippy-box[data-placement^=left] > .tippy-backdrop[data-state=visible] {
+  -webkit-transform: scale(1) translate(-50%, -50%);
+          transform: scale(1) translate(-50%, -50%);
+}
+
+.tippy-box[data-placement^=left] > .tippy-backdrop[data-state=hidden] {
+  -webkit-transform: scale(0.2) translate(-75%, -50%);
+          transform: scale(0.2) translate(-75%, -50%);
+}
+
+.tippy-box[data-placement^=right] > .tippy-backdrop {
+  -webkit-transform-origin: -50% 0;
+          transform-origin: -50% 0;
+  border-radius: 0 50% 50% 0;
+}
+
+.tippy-box[data-placement^=right] > .tippy-backdrop[data-state=visible] {
+  -webkit-transform: scale(1) translate(-50%, -50%);
+          transform: scale(1) translate(-50%, -50%);
+}
+
+.tippy-box[data-placement^=right] > .tippy-backdrop[data-state=hidden] {
+  -webkit-transform: scale(0.2) translate(-25%, -50%);
+          transform: scale(0.2) translate(-25%, -50%);
+}
+
+.tippy-box[data-animatefill] {
+  background-color: transparent !important;
+}
+
+.tippy-backdrop {
+  position: absolute;
+  background-color: #333;
+  border-radius: 50%;
+  width: calc(110% + 32px);
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  -webkit-transition: all cubic-bezier(0.46, 0.1, 0.52, 0.98);
+  transition: all cubic-bezier(0.46, 0.1, 0.52, 0.98);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.tippy-backdrop[data-state=hidden] {
+  opacity: 0;
+}
+
+.tippy-backdrop:after {
+  content: "";
+  float: left;
+  padding-top: 100%;
+}
+
+.tippy-backdrop + .tippy-content {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  will-change: opacity;
+}
+
+.tippy-backdrop + .tippy-content[data-state=hidden] {
+  opacity: 0;
+}
+
+.tippy-box[data-animation=shift-away][data-state=hidden] {
+  opacity: 0;
+}
+
+.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=top] {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=bottom] {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=left] {
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+}
+
+.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=right] {
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+}
+
 .tippy-box[data-theme~=light] {
   color: #26323d;
   -webkit-box-shadow: 0 0 20px 4px rgba(154, 161, 177, 0.15), 0 4px 80px -8px rgba(36, 40, 47, 0.25), 0 4px 4px -2px rgba(91, 94, 105, 0.15);
@@ -576,6 +600,30 @@ div[data-tippy-root] {
 
 .tippy-box[data-theme~=light] > .tippy-svg-arrow {
   fill: #fff;
+}
+
+.tippy-box[data-animation=shift-toward][data-state=hidden] {
+  opacity: 0;
+}
+
+.tippy-box[data-animation=shift-toward][data-state=hidden][data-placement^=top] {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.tippy-box[data-animation=shift-toward][data-state=hidden][data-placement^=bottom] {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+.tippy-box[data-animation=shift-toward][data-state=hidden][data-placement^=left] {
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+}
+
+.tippy-box[data-animation=shift-toward][data-state=hidden][data-placement^=right] {
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
 }
 
 .tippy-box[data-animation=perspective][data-placement^=top] {
@@ -640,54 +688,6 @@ div[data-tippy-root] {
 
 .tippy-box[data-animation=perspective][data-state=hidden] {
   opacity: 0;
-}
-
-.tippy-box[data-animation=shift-away][data-state=hidden] {
-  opacity: 0;
-}
-
-.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=top] {
-  -webkit-transform: translateY(10px);
-          transform: translateY(10px);
-}
-
-.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=bottom] {
-  -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
-}
-
-.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=left] {
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
-}
-
-.tippy-box[data-animation=shift-away][data-state=hidden][data-placement^=right] {
-  -webkit-transform: translateX(-10px);
-          transform: translateX(-10px);
-}
-
-.tippy-box[data-animation=shift-toward][data-state=hidden] {
-  opacity: 0;
-}
-
-.tippy-box[data-animation=shift-toward][data-state=hidden][data-placement^=top] {
-  -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
-}
-
-.tippy-box[data-animation=shift-toward][data-state=hidden][data-placement^=bottom] {
-  -webkit-transform: translateY(10px);
-          transform: translateY(10px);
-}
-
-.tippy-box[data-animation=shift-toward][data-state=hidden][data-placement^=left] {
-  -webkit-transform: translateX(-10px);
-          transform: translateX(-10px);
-}
-
-.tippy-box[data-animation=shift-toward][data-state=hidden][data-placement^=right] {
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
 }
 
 .tippy-box[data-animation=scale][data-placement^=top] {
