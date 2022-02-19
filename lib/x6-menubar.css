@@ -1,5 +1,5 @@
 .x6-menubar-item {
-  position: relative;
+  position: inherit;
 }
 
 .x6-menu {
@@ -137,6 +137,10 @@
 }
 .x6-menu.x6-menu-has-icon .x6-menu-item-button .x6-menu-item-text {
   padding-left: 2px;
+}
+.x6-menu.x6-menu-border {
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
 .x6-menubar {

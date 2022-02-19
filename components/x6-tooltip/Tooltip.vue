@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <Tippy target="_parent">
-            <slot></slot>
-        </Tippy>
-    </div>
+    <Tippy target="_parent">
+        <slot></slot>
+    </Tippy>
 </template>
 <script>
 import { defineComponent } from 'vue'

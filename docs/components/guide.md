@@ -1,6 +1,5 @@
 ---
 title: 开发指南
-base: /x6-vue3-components/
 ---
 
 # {{ $frontmatter.title }}

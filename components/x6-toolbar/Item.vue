@@ -1,5 +1,5 @@
 <template>
-    <Dropdown v-if="slotDropdown" :tAnimateFill="true" tAppendTo='parent'>
+    <Dropdown v-if="slotDropdown" tAppendTo="parent">
         <button type="button" v-bind="buttonProps" :onClick="handleClick">
             <span v-if="icon && !slotIcon" :class="`${baseCls}-icon ${icon}`"></span>
             <slot v-if="slotIcon" name="icon"></slot>
@@ -23,7 +23,7 @@
             <span v-if="icon && !slotIcon" :class="`${baseCls}-icon ${icon}`"></span>
             <slot v-if="slotIcon" name="icon"></slot>
             <span v-if="text && !slotDefault" :class="`${baseCls}-text`">
-                {text}
+                {{text}}
             </span>
             <span v-if="slotDefault" :class="`${baseCls}-text`">
                 <slot></slot>

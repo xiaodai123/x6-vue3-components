@@ -2,5 +2,5 @@
 
 $context-menu-prefix-cls: '#{$x6-prefix}-context-menu';
 .#{$context-menu-prefix-cls} {
-    position: relative;
+    position: inherit;
 }

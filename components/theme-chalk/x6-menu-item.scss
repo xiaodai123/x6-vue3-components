@@ -2,5 +2,5 @@
 
 $menu-item-prefix-cls: '#{$x6-prefix}-menu-item';
 .#{$menu-item-prefix-cls} {
-    position: relative;
+    position: inherit;
 }

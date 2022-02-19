@@ -2,5 +2,5 @@
 
 $menu-item-divider-prefix-cls: '#{$x6-prefix}-menu-item-divider';
 .#{$menu-item-divider-prefix-cls} {
-    display: block;
+    position: inherit;
 }

@@ -12,6 +12,10 @@ export default defineComponent({
             type: String,
             default: ''
         },
+        border: {
+            type: Boolean,
+            default: false
+        },
         hasIcon: {
             type: Boolean,
             default: false
@@ -44,7 +48,7 @@ export default defineComponent({
         }
     },
     setup(props) {
-        let { className, unregisterHotkey, registerHotkey, autoHotkey, onClick, hasIcon, stopPropagation } = toRefs(props)
+        let { className, unregisterHotkey, registerHotkey, autoHotkey, onClick, hasIcon, border, stopPropagation } = toRefs(props)
         let prefixCls = ref('x6')
         let baseCls = ref(`${prefixCls.value}-menu`)
 
@@ -79,6 +83,7 @@ export default defineComponent({
         let menuClassName = computed(() => {
             return `${baseCls.value} 
             ${hasIcon.value ? baseCls.value + '-has-icon' : ''} 
+            ${border.value ? baseCls.value + '-border' : ''} 
             ${className.value}
              `
         })

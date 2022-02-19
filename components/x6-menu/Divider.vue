@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <div :class="menuDividerClassName"></div>
-    </div>
+    <div :class="menuDividerClassName"></div>
 </template>
 <script>
 import { computed, inject, defineComponent } from 'vue'

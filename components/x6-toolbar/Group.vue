@@ -1,8 +1,6 @@
 <template>
-    <div>
-        <div :className="groupClassName">
-            <slot></slot>
-        </div>
+    <div :class="groupClassName">
+        <slot></slot>
     </div>
 </template>
 <script>
