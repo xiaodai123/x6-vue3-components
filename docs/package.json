@@ -13,13 +13,14 @@
   "license": "ISC",
   "dependencies": {
     "@docsearch/js": "^3.0.0-alpha.50",
+    "@element-plus/icons": "0.0.11",
     "@vueuse/core": "^7.6.1",
     "element-plus": "^2.0.2",
     "normalize.css": "^8.0.1",
     "prettier": "^2.5.1",
     "vite": "^2.8.2",
     "vitepress": "^0.22.1",
-    "x6-vue3-components": "^1.0.6"
+    "x6-vue3-components": "^1.0.7"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

@@ -3,6 +3,7 @@ import { registerComponents } from './register-components'
 import 'normalize.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import * as ElIcons from "@element-plus/icons"
 import './styles/index.css'
 import './styles/code.scss'
 
@@ -14,6 +15,10 @@ export default {
     // router is VitePress' custom router (see `lib/app/router.js`)
     // siteData is a ref of current site-level metadata.
     app.use(ElementPlus)
+
+    for (const name in ElIcons){
+      app.component(name, ElIcons[name])
+    }
     
     registerComponents(app)
   }

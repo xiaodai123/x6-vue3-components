@@ -31,7 +31,7 @@ module.exports = {
         anchor: { permalink: false },
     
         // options for markdown-it-toc
-        toc: { includeLevel: [1, 2] },
+        // toc: { includeLevel: [1, 2] },
 
         config: (md) => mdPlugin(md),
     }

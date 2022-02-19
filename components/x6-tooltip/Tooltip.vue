@@ -1,5 +1,5 @@
 <template>
-    <Tippy target="_parent">
+    <Tippy target="_parent" @trigger="triggerFn">
         <slot></slot>
     </Tippy>
 </template>
@@ -14,7 +14,7 @@ import 'tippy.js/animations/shift-away.css';
 import 'tippy.js/animations/shift-toward.css';
 import 'tippy.js/animations/perspective.css';
 import 'tippy.js/animations/scale.css';
-import tippy, {animateFill} from 'tippy.js'
+import tippy, { animateFill } from 'tippy.js'
 const hideOnPopper = {
     name: 'hideOnPopper',
     defaultValue: true,
@@ -41,30 +41,6 @@ const hideOnPopper = {
             onHide() {
                 let x6Dropdown = instance.popper.querySelector(".x6-dropdown")
                 x6Dropdown && x6Dropdown.removeEventListener('click', x6DropdownHide)
-            }
-        }
-    }
-}
-
-const contextMenu = {
-    name: 'contextMenu',
-    defaultValue: true,
-    fn(instance) {
-        return {
-            onCreate() {
-                let trigger = instance.props.trigger
-                if (trigger == 'contextMenu') {
-                    instance.reference.oncontextmenu = (e) => {
-                        e.preventDefault()
-                        instance.show()
-                    }
-                }
-            },
-            onDestroy() {
-                let trigger = instance.props.trigger
-                if (trigger == 'contextMenu') {
-                    instance.reference.oncontextmenu = null
-                }
             }
         }
     }
@@ -118,12 +94,19 @@ const tAnimateFill = {
     }
 }
 tippy.setDefaultProps({
-    plugins: [animateFill, hideOnPopper, contextMenu],
+    plugins: [animateFill, hideOnPopper],
 })
 export default defineComponent({
     name: 'Tooltip',
     components: {
         Tippy: createTippyComponent(tTheme, ...defaultTippyProps, hideOnClick, tAppendTo, tAnimateFill)
+    },
+    methods: {
+        triggerFn(tip, triggerEvent) {
+            if (tip.props.trigger == 'contextmenu') {
+                triggerEvent.preventDefault()
+            }
+        }
     }
 })
 </script>

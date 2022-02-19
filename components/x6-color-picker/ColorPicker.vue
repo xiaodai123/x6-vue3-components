@@ -59,7 +59,10 @@ export default defineComponent({
         /* 颜色类型，可选值：hex，rgb */
         colorFormat: {
             type: String,
-            default: 'hex'
+            default: 'hex',
+            validator(value) {
+                return ['hex', 'rgb'].includes(value)
+            }
         },
         predefineColors: {
             type: Array,

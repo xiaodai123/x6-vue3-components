@@ -1,6 +1,6 @@
 # x6-vue3-components 开发指南
 
-搭建一个复杂的图编辑应用还需要用到 Menubar、Toolbar、Dropdown、ContextMenu、Splitbox 等 UI 组件，我们在 [x6-vue3-components](https://www.npmjs.com/package/x6-vue3-components) 中提供了一些这样的 Vue3 组件，可以搭配 [antd](https://ant.design/) 使用。
+搭建一个复杂的图编辑应用还需要用到 X6Menubar、X6Toolbar、X6Dropdown、X6ContextMenu、X6Splitbox 等 UI 组件，我们在 [x6-vue3-components](https://www.npmjs.com/package/x6-vue3-components) 中提供了一些这样的 Vue3 组件，可以搭配 [elemnt-plus](https://element-plus.gitee.io/) 使用。
 
 ## 安装
 

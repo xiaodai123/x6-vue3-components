@@ -22,7 +22,10 @@ export default defineComponent({
         },
         trigger: {
             type: String,
-            default: 'click' // contextMenu, mouseenter focus, click, focusin, mouseenter click, manual
+            default: 'click', // contextmenu, mouseenter focus, click, focusin, mouseenter click, manual
+            validator(value) {
+                return ['contextmenu', 'mouseenter focus', 'click', 'focusin', 'mouseenter click', 'manual'].includes(value)
+            }
         },
         visible: {
             type: Boolean,
@@ -30,11 +33,17 @@ export default defineComponent({
         },
         transitionName: {
             type: String,
-            default: 'shift-away' // 'shift-away' 'shift-toward' 'perspective' 'fade' 'scale'
+            default: 'shift-away', // shift-away, shift-toward, perspective, fade, scale
+            validator(value) {
+                return ['shift-away', 'shift-toward', 'perspective', 'fade', 'scale'].includes(value)
+            }
         },
         placement: {
             type: String,
-            default: 'bottom' // 'top' 'bottom' 'left' 'right'
+            default: 'bottom', // top, top-start, top-end, right, right-start, right-end, bottom, bottom-start, bottom-end, left, left-start, left-end, auto, auto-start, auto-end
+            validator(value) {
+                return ['top', 'top-start', 'top-end', 'right', 'right-start', 'right-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'left-start', 'left-end', 'auto', 'auto-start', 'auto-end'].includes(value)
+            }
         },
         mouseEnterDelay: {
             type: Number,

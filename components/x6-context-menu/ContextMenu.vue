@@ -1,5 +1,5 @@
 <template>
-    <Dropdown v-bind="$props" placement="bottom-start" trigger="contextMenu">
+    <Dropdown v-bind="$props" placement="bottom-start" trigger="contextmenu">
         <slot></slot>
         <template #visible>
             <slot name="menu"></slot>
@@ -19,21 +19,23 @@ export default defineComponent({
             type: String,
             default: ''
         },
-        trigger: {
-            type: String,
-            default: 'click' // contextMenu, mouseenter focus, click, focusin, mouseenter click, manual
-        },
         visible: {
             type: Boolean,
             default: false
         },
         transitionName: {
             type: String,
-            default: 'shift-away' // 'shift-away' 'shift-toward' 'perspective' 'fade' 'scale'
+            default: 'shift-away', // 'shift-away' 'shift-toward' 'perspective' 'fade' 'scale'
+            validator(value) {
+                return ['shift-away', 'shift-toward', 'perspective', 'fade', 'scale'].includes(value)
+            }
         },
         placement: {
             type: String,
-            default: 'bottom' // 'top' 'bottom' 'left' 'right'
+            default: 'bottom', // 'top' 'bottom' 'left' 'right'
+            validator(value) {
+                return ['top', 'top-start', 'top-end', 'right', 'right-start', 'right-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'left-start', 'left-end', 'auto', 'auto-start', 'auto-end'].includes(value)
+            }
         },
         mouseEnterDelay: {
             type: Number,
@@ -45,7 +47,9 @@ export default defineComponent({
         },
         tAppendTo: {
             type: [String, Function],
-            default: 'parent'
+            default() {
+                return () => document.body
+            }
         },
         tTheme: {
             type: String,

@@ -5,3 +5,12 @@
 .m-0 {
   margin: 0;
 }
+.container {
+  padding: unset!important;
+}
+table tr td:nth-child(2) {
+  max-width: 350px;
+}
+table tr td:nth-child(4) {
+  max-width: 200px;
+}

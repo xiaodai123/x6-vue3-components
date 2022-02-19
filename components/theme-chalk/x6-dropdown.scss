@@ -3,4 +3,6 @@
 $dropdown-prefix-cls: '#{$x6-prefix}-dropdown';
 .#{$dropdown-prefix-cls} {
     position: inherit;
+    max-height: 450px;
+    overflow-y: auto;
 }
