@@ -15,10 +15,10 @@ function getDemoSidebar() {
         {
             text: "组件",
             children: [
-                {
-                    text: "例子",
-                    link: "/components/button/"
-                },
+                // {
+                //     text: "例子",
+                //     link: "/components/button/"
+                // },
                 {
                     text: "X6Menu",
                     link: "/components/menu/"

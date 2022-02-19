@@ -9,7 +9,7 @@ export default [
     },
     {
         text: '案例',
-        link: 'https://github.com/xiaodai123/x6-vue3-components',
+        link: 'https://daizhigitee.gitee.io/x6-vue3-components-examples/',
     },
     {
         text: 'GitHub',
