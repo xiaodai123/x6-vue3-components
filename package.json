@@ -60,8 +60,7 @@
         "hotkeys-js": "^3.8.7",
         "overlayscrollbars": "^1.13.1",
         "tippy.js": "^6.3.7",
-        "tippy.vue": "^3.1.2",
-        "vue": "^3.2.29"
+        "tippy.vue": "^3.1.2"
     },
     "scripts": {
         "setup": "npm i && cd example && npm i && cd ..",

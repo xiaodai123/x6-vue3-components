@@ -30,3 +30,12 @@ X6 是 AntV 旗下的图编辑引擎，提供了一系列开箱即用的交互�
 ## 🍉 使用文档
 本文章提供了x6适配Vue3的组件，详细如下
 - [开发指南](guide)
+- [X6Menu](./menu/) 菜单
+- [X6Dropdown](./dropdown/) 下拉菜单
+- [X6ContextMenu](./contextmenu/) 上下文菜单
+- [X6Menubar](./menubar/) 菜单栏
+- [X6Toolbar](./toolbar/) 工具栏
+- [X6SplitBox](./splitbox/) 分割容器
+- [X6ScrollBox](./scrollbox/) 自定义滚动条的容器
+- [X6Tooltip](./tooltip/) 提示
+- [X6ColorPicker](./colorPicker/) 颜色选择器

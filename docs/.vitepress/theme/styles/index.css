@@ -8,6 +8,9 @@
 .container {
   padding: unset!important;
 }
+.next-and-prev-link {
+  padding-bottom: 5rem!important;
+}
 table tr td:nth-child(2) {
   max-width: 350px;
 }
