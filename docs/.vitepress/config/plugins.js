@@ -58,4 +58,14 @@ export const mdPlugin = (md) => {
             }
         }
     })
+
+    md.use(mdContainer, 'doc-toc', {
+        validate(params) {
+            return !!params.trim().match(/^doc-toc\s*(.*)$/)
+        },
+
+        render(tokens, idx) {
+            return '<TocContentNav/>'
+        }
+    })
 }

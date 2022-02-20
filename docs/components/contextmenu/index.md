@@ -5,6 +5,10 @@ sidebarDepth: 2
 
 # {{ $frontmatter.title }}
 
+[[toc]]
+
+:::doc-toc
+
 ## 基础使用
 
 :::demo 右键触发。

@@ -5,6 +5,9 @@ sidebarDepth: 2
 
 # {{ $frontmatter.title }}
 
+[[toc]]
+
+:::doc-toc
 
 :::tip
 

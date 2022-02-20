@@ -5,6 +5,10 @@ sidebarDepth: 2
 
 # {{ $frontmatter.title }}
 
+[[toc]]
+
+:::doc-toc
+
 :::tip
 
 `X6Item`组件使用具名插槽`dropdown`传递`X6Toolbar`组件的`onClick`选项

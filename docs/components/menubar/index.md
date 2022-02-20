@@ -5,6 +5,10 @@ sidebarDepth: 2
 
 # {{ $frontmatter.title }}
 
+[[toc]]
+
+:::doc-toc
+
 :::tip
 
 `X6Menubar`组件的子组件有`X6MenubarItem`、`X6Menu`、`X6MenuItem`、`X6Divider`

@@ -28,7 +28,11 @@ module.exports = {
     },
     markdown: {
         // options for markdown-it-anchor
-        anchor: { permalink: false },
+        anchor: { 
+            permalink: true,
+            permalinkBefore: true,
+            permalinkSymbol: '#'
+        },
     
         // options for markdown-it-toc
         // toc: { includeLevel: [1, 2] },

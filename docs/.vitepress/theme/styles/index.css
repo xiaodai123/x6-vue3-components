@@ -7,6 +7,7 @@
 }
 .container {
   padding: unset!important;
+  margin-left: 5rem!important;
 }
 .next-and-prev-link {
   padding-bottom: 5rem!important;

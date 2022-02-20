@@ -5,6 +5,10 @@ sidebarDepth: 2
 
 # {{ $frontmatter.title }}
 
+[[toc]]
+
+:::doc-toc
+
 ## 简单分割
 
 :::demo X6SplitBox有主次两个Box。

@@ -5,6 +5,10 @@ sidebarDepth: 2
 
 # {{ $frontmatter.title }}
 
+[[toc]]
+
+:::doc-toc
+
 ## Hover触发
 
 :::demo `trigger`为`mouseenter focus`。

@@ -5,6 +5,10 @@ sidebarDepth: 2
 
 # {{ $frontmatter.title }}
 
+[[toc]]
+
+:::doc-toc
+
 ## 初始化颜色
 
 :::demo 初始化颜色为黑色。

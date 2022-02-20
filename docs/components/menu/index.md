@@ -5,6 +5,10 @@ sidebarDepth: 2
 
 # {{ $frontmatter.title }}
 
+[[toc]]
+
+:::doc-toc
+
 菜单组件。一般在 [X6Menubar](../menubar/)、[X6ContextMenu](../contextmenu/)、[X6Dropdown](../dropdown/) 组件中使用。
 
 ## 基础菜单
