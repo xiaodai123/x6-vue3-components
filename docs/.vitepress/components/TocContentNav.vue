@@ -44,6 +44,11 @@ export default {
 }
 </script>
 <style lang="scss">
+@media screen and (min-width: 1280px) {
+    .toc-wrapper {
+        display: block;
+    }
+}
 .toc-wrapper {
     position: fixed;
     top: 87px;
