@@ -36,7 +36,7 @@
     </div>
 </template>
 <script>
-import { toRefs, inject, ref, reactive, defineComponent } from 'vue'
+import { toRefs, inject, ref, defineComponent, computed } from 'vue'
 import Dropdown from '../x6-dropdown/Dropdown.vue'
 import Tooltip from '../x6-tooltip/Tooltip.vue'
 export default defineComponent({
@@ -113,7 +113,8 @@ export default defineComponent({
         let toolbarContextClick = toolbarContext.click
         let baseCls = toolbarContext.baseCls
         baseCls = `${baseCls}-item`
-        let { icon, text, hidden, active, disabled, className, tooltip, tooltipAsTitle, dropdownArrow } = toRefs(props)
+        let { hidden, active, disabled, className, tooltip, tooltipAsTitle } = toRefs(props)
+        
         let buttonProps = computed(() => {
             let buttonProps = {
                 class: `${baseCls} 
