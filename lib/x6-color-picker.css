@@ -12,8 +12,7 @@
   border-radius: 2px;
 }
 .x6-color-picker-panel {
-  position: absolute;
-  top: 30px;
+  position: fixed;
   z-index: 2001;
   -webkit-transform-origin: center top;
           transform-origin: center top;
@@ -25,6 +24,12 @@
   border-radius: 4px;
   -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.x6-color-picker-panel-left {
+  left: 0;
+}
+.x6-color-picker-panel-right {
+  right: 0;
 }
 .x6-color-picker-canvas {
   position: relative;

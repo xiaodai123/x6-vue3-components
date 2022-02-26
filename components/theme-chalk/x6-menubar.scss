@@ -17,6 +17,8 @@ $menubar-item-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     flex-direction: row;
     margin: 0;
     padding: 0;
+    height: 30px;
+    line-height: 30px;
 
     &-content {
         display: flex;

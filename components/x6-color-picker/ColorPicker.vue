@@ -1,9 +1,9 @@
 <template>
 	<div :class="`${baseCls}`">
 		<!-- 颜色显示方块 -->
-		<div :class="`${baseCls}-block`" :style="{ backgroundColor: curColor }" @click.stop="!disabled&&(showPanel=!showPanel)"></div>
+		<div :class="`${baseCls}-block`" ref="colorPanelShow" :style="{ backgroundColor: curColor }" @click.stop="clickBlock"></div>
 		<!-- 颜色面板 -->
-		<div :class="`${baseCls}-panel`" v-show="showPanel" @click.stop="">
+		<div :class="`${baseCls}-panel ${baseCls}-panel-${horizontal}`" v-show="showPanel" @click.stop="">
 			<!-- 画布 -->
 			<div :class="`${baseCls}-canvas`">
 				<canvas :id="canvasId" :width="width" :height="height" @click="onCanvasClick"
@@ -59,10 +59,7 @@ export default defineComponent({
         /* 颜色类型，可选值：hex，rgb */
         colorFormat: {
             type: String,
-            default: 'hex',
-            validator(value) {
-                return ['hex', 'rgb'].includes(value)
-            }
+            default: 'hex'
         },
         predefineColors: {
             type: Array,
@@ -88,7 +85,8 @@ export default defineComponent({
             showPanel: false, // 是否显示颜色面板
             startColor: '',
             prefixCls: 'x6',
-            baseCls: ''
+            baseCls: '',
+            horizontal: 'left'
         }
     },
     computed: {
@@ -117,6 +115,17 @@ export default defineComponent({
         document.body.removeEventListener('click', this.handler)
     },
     methods: {
+        clickBlock() {
+            !this.disabled&&(this.showPanel=!this.showPanel)
+            if (this.showPanel) {
+                this.isInViewPort(this.$refs.colorPanelShow)
+            }
+        },
+        isInViewPort(el) {
+            var rect = el.getBoundingClientRect();
+            let right = window.screen.width - rect.left < 300
+            this.horizontal = right ? 'right' : 'left'
+        },
         handler() {
             this.showPanel = false
         },

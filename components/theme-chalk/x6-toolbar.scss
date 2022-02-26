@@ -65,6 +65,7 @@ $toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
         box-shadow: none;
         cursor: pointer;
         user-select: none;
+        height: 90%;
 
         &.#{$toolbar-prefix-cls}-item-hidden {
             display: none;
@@ -117,7 +118,7 @@ $toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
         opacity: 0.4;
     }
 
-    &#{self}-hover-effect {
+    &#{$self}-hover-effect {
         height: 32px;
 
         .#{$toolbar-prefix-cls}-item {
@@ -127,7 +128,7 @@ $toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
         }
     }
 
-    &#{self}-hover-effect &-item-disabled#{$toolbar-prefix-cls}-item:hover {
+    &#{$self}-hover-effect &-item-disabled#{$self}-item:hover {
         color: #595959;
         background-color: transparent;
 
@@ -136,9 +137,9 @@ $toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
         }
     }
 
-    &-item#{$toolbar-prefix-cls}-item-active,
-    &#{self}-hover-effect &-item#{$toolbar-prefix-cls}-item-active,
-    &#{self}-hover-effect &-item:hover {
+    &-item#{$self}-item-active,
+    &#{$self}-hover-effect &-item#{self}-item-active,
+    &#{$self}-hover-effect &-item:hover {
         color: #262626;
         background-color: #e0e0e0;
 
@@ -147,11 +148,11 @@ $toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
         }
     }
 
-    &-item#{$toolbar-prefix-cls}-item-active {
+    &-item#{$self}-item-active {
         margin: 4px 0;
     }
 
-    &#{self}-big {
+    &#{$self}-big {
         height: 32px;
 
         .#{$toolbar-prefix-cls}-content-extras {
@@ -173,7 +174,7 @@ $toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
         }
     }
 
-    &#{self}-hover-effect#{$toolbar-prefix-cls}-big {
+    &#{$self}-hover-effect#{$self}-big {
         height: 40px;
 
         .#{$toolbar-prefix-cls}-item {
@@ -181,7 +182,7 @@ $toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
         }
     }
 
-    &#{self}-small {
+    &#{$self}-small {
         height: 22px;
 
         .#{$toolbar-prefix-cls}-content-extras {
@@ -207,7 +208,7 @@ $toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
         }
     }
 
-    &#{self}-hover-effect#{$toolbar-prefix-cls}-small {
+    &#{$self}-hover-effect#{$self}-small {
         height: 28px;
 
         .#{$toolbar-prefix-cls}-item {
@@ -220,9 +221,25 @@ $toolbar-prefix-cls: '#{$x6-prefix}-toolbar';
         }
     }
 
-    &#{self}-align-right {
+    &#{$self}-align-right {
         .#{$toolbar-prefix-cls}-content {
             flex-direction: row-reverse;
         }
+    }
+
+    &-item-button {
+        cursor: inherit;
+        display: flex;
+        flex-direction: row;
+        padding: 0px;
+        margin: 0px;
+        align-content: center;
+        align-items: center;
+        color: #595959;
+        background-color: transparent;
+        border: 0;
+        outline: none;
+        box-shadow: none;
+        user-select: none;
     }
 }

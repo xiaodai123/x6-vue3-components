@@ -58,7 +58,7 @@ export default defineComponent({
             }
 
             if (onClick.value) {
-                onClick.value(name)
+                onClick.value(name, event)
             }
         }
         let registerHotkeyFn = (hotkey, handler = () => {}) => {

@@ -92,8 +92,9 @@ export default defineComponent({
         let hotkey = this.hotkey
         if (hotkey) {
             if (this.autoHotkey) {
-                hotkeys(hotkey.toLowerCase(), () => {
-                    this.onHotkey()
+                hotkeys(hotkey.toLowerCase(), (event) => {
+                    event.preventDefault()
+                    this.onHotkey(event)
                 })
             } else {
                 this.registerHotkey(hotkey, this.onHotkey)
@@ -111,8 +112,8 @@ export default defineComponent({
         }
     },
     methods: {
-        onHotkey() {
-            this.triggerHandler()
+        onHotkey(event) {
+            this.triggerHandler(event)
         },
         menuItemClick(e) {
             this.triggerHandler(e)
@@ -124,7 +125,7 @@ export default defineComponent({
                 }
 
                 if (this.onClick) {
-                    this.onClick()
+                    this.onClick(event)
                 }
             }
         }

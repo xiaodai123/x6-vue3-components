@@ -3,4 +3,5 @@
 $toolbar-group-prefix-cls: '#{$x6-prefix}-toolbar-group';
 .#{$toolbar-group-prefix-cls} {
     position: inherit;
+    height: 100%;
 }
