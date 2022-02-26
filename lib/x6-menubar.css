@@ -1,7 +1,3 @@
-.x6-menubar-item {
-  position: inherit;
-}
-
 .x6-menu {
   position: relative;
   display: inline-block;
@@ -261,4 +257,8 @@
           transform: translateY(0);
   visibility: visible;
   opacity: 1;
+}
+
+.x6-menubar-item {
+  position: inherit;
 }

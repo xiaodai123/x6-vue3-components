@@ -16,7 +16,7 @@ $color-picker-prefix-cls: '#{$x6-prefix}-color-picker';
 	}
 
 	&-panel {
-		position: fixed;
+		position: absolute;
 		z-index: 2001;
 		transform-origin: center top;
 		padding: 6px;

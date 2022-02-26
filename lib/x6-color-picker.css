@@ -12,7 +12,7 @@
   border-radius: 2px;
 }
 .x6-color-picker-panel {
-  position: fixed;
+  position: absolute;
   z-index: 2001;
   -webkit-transform-origin: center top;
           transform-origin: center top;
